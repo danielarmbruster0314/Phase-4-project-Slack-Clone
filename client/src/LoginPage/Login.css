@@ -1,0 +1,34 @@
+.header_logo {
+	background-color: #ffffff;
+	min-height: 20vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+
+.login_page {
+	background-color: #9f5b5b;
+	min-height: 10vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: rgb(0, 0, 0);
+	margin: 4em auto;
+	width: 100%;
+}
+
+.login_page .login_form {
+	margin-top: 3em;
+	margin: 3em 2em;
+}
+
+.footer {
+    margin-top: 20%;
+	bottom: 0;
+	width: 100%;
+	height: 2.5rem;
+}
