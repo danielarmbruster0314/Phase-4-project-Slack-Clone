@@ -1,48 +1,66 @@
 import React from "react";
+// import { Link } from "react-router-dom";
+import {
+	Button,
+	Form,
+	Grid,
+	Header,
+	Message,
+	Segment,
+} from "semantic-ui-react";
 import "./Login.css";
+import LogoHeader from "./Login_Header";
+import Footer from "./Login_Footer";
 
 function Login() {
 	return (
 		<>
-			<main>
-				<section>
-					<h1>Sign in to Slack </h1>
-					<br />
+			<LogoHeader />
+
+			<Grid
+				textAlign='center'
+				style={{ height: "40vh" }}
+				verticalAlign='middle'
+			>
+				<Grid.Column style={{ maxWidth: 450 }}>
+					<Header as='h2' color='purple' textAlign='center'>
+						Log-in to your account
+					</Header>
+
 					<p>
 						We suggest using the <strong> e-mail you use at work.</strong>
 					</p>
-				</section>
+					<Form size='large'>
+						<Segment stacked>
+							<Form.Input
+								fluid
+								icon='user'
+								iconPosition='left'
+								placeholder='E-mail address'
+							/>
+							<Form.Input
+								fluid
+								icon='lock'
+								iconPosition='left'
+								placeholder='Password'
+								type='password'
+							/>
 
-				<section>
-					<h2> Sign In</h2>
-					<form>
-						<label>User Name</label>
-						<input
-							type='text'
-							id='username'
-							placeholder='name@example.com'
-							required
-						/>
+							<Button color='purple' fluid size='large'>
+								<a href='/landingpage'> Login </a>
+							</Button>
+						</Segment>
+					</Form>
+					<Message>
+						New to us?{" "}
+						<a href='/registration'>
+							<strong> Sign Up</strong>
+						</a>
+					</Message>
+				</Grid.Column>
+			</Grid>
 
-						<label>Password</label>
-						<input
-							type='password'
-							id='password'
-							placeholder='Pa$$w0rd!'
-							required
-						/>
-
-						<button>Log In</button>
-					</form>
-
-					<p>
-						Need an Account? <br />
-						<span>
-							<a href='../Registration'>Create Account</a>
-						</span>
-					</p>
-				</section>
-			</main>
+			<Footer />
 		</>
 	);
 }

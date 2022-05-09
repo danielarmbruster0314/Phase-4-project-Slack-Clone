@@ -1,21 +1,79 @@
 import React from "react";
 import "./Login.css";
+import {
+	Button,
+	Form,
+	Grid,
+	Header,
+	Message,
+	Segment,
+} from "semantic-ui-react";
+import "./Login.css";
+
+import LogoHeader from "./Login_Header";
+import Footer from "./Login_Footer";
 
 function Registration() {
 	return (
 		<>
-			<div>
-				<h1>This is the Registration Page</h1>
-			</div>
+			<LogoHeader />
 
-			<main>
-				<section>
-					<h1>Success!</h1>
-					<p>
-						<a href='./Login'>Sign In</a>
-					</p>
-				</section>
+			<Grid
+				textAlign='center'
+				style={{ height: "40vh" }}
+				verticalAlign='middle'
+			>
+				<Grid.Column style={{ maxWidth: 450 }}>
+					<Header as='h2' color='purple' textAlign='center'>
+						Join Slack
+					</Header>
 
+					<Form size='large'>
+						<Segment stacked>
+							<Form.Input
+								fluid
+								icon='user'
+								iconPosition='left'
+								placeholder='User Name'
+							/>
+							<Form.Input
+								fluid
+								icon='mail'
+								iconPosition='left'
+								placeholder='E-mail address'
+							/>
+							<Form.Input
+								fluid
+								icon='lock'
+								iconPosition='left'
+								placeholder='Password'
+								type='password'
+							/>
+
+							<Form.Input
+								fluid
+								icon='lock'
+								iconPosition='left'
+								placeholder='Confirm Password'
+								type='password'
+							/>
+							<p>Must match the first password input field.</p>
+
+							<Button color='purple' fluid size='large'>
+								<a href='/landingpage'> Join </a>
+							</Button>
+						</Segment>
+					</Form>
+					<Message>
+						Already Have An Account?
+						<a href='/'>
+							<strong> Log In </strong>
+						</a>
+					</Message>
+				</Grid.Column>
+			</Grid>
+
+			{/* <main>
 				<section>
 					<h2>Register</h2>
 					<form>
@@ -59,7 +117,11 @@ function Registration() {
 						</span>
 					</p>
 				</section>
-			</main>
+			</main> */}
+			<br />
+			<br />
+			<br />
+			<Footer />
 		</>
 	);
 }

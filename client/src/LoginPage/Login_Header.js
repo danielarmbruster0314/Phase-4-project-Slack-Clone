@@ -1,8 +1,12 @@
 import React from "react";
-// import "./Header.css";
+import "./Login.css";
+import slacklogo from "../images/slacklogo.png";
 
 function Header() {
-	return <p>This is the Login Header </p>;
+	return (
+		<header className='header_logo'>
+			<img src={slacklogo} width='250px' alt='slack header logo' />
+		</header>
+	);
 }
-
 export default Header;
