@@ -1,13 +1,31 @@
 import React from "react";
-// import "./Footer.css";
+import { List, Segment, Container } from "semantic-ui-react";
+import "./Login.css";
 
 function Footer() {
 	return (
-		<div>
-			<footer>
-				<p>This is the Login Page Footer</p>
-			</footer>
-		</div>
+		<Segment
+			className='Footer'
+			vertical
+			style={{ margin: "5em 0em 0em", padding: "1em 0em" }}
+		>
+			<Container textAlign='center'>
+				<List horizontal divided link size='small'>
+					<List.Item as='a' href='#'>
+						Site Map
+					</List.Item>
+					<List.Item as='a' href='#'>
+						Contact Us
+					</List.Item>
+					<List.Item as='a' href='#'>
+						Terms and Conditions
+					</List.Item>
+					<List.Item as='a' href='#'>
+						Privacy Policy
+					</List.Item>
+				</List>
+			</Container>
+		</Segment>
 	);
 }
 
