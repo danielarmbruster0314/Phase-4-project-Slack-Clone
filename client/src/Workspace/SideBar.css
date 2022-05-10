@@ -3,6 +3,7 @@
     border-top: 1px solid rgb(145,145,147);
     max-width: 260px;
     color:white; 
+    flex: 0.3;
 }
 
 .sidebar_header {
@@ -39,3 +40,29 @@
     background-color: white;
     border-radius: 999px;
 }
+
+.sidebar > hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(145,145,147);
+}
+
+.sidebar_accordain{
+font-weight: bold;
+font-size: 15px;
+}
+
+.accordain_content{
+    background-color: black;
+}
+
+.icon:hover{
+background-color: #37353D;
+border-radius: 5px;
+
+}
+
+.icon{
+    color: #A3A3A6;
+}
+
