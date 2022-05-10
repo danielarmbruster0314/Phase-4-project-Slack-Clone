@@ -4,6 +4,7 @@
     font-size: 12px;
     padding-left: 2px;
     cursor: pointer;
+    color: #919193;
 }
 
 .sidebar_option:hover {
@@ -12,10 +13,29 @@ background-color: rgba(209,210,211,0.2);
 }
 
 .sidebaroption_icon{
-    padding: 10px;
-    font-size: 15px !important;
+     padding-left: 10px; 
+    font-size: 30px !important; 
 }
 
 .sidebaroption_channel {
     padding: 10px 0;
+}
+
+.sidebar_option > h3 {
+font-weight: 500;
+margin-top: 0;
+margin-bottom: 0;
+margin-left: 5px;
+margin-right: auto;
+font-size: 15px;
+color: #919193;
+}
+
+.sidebaroption_hash{
+    padding: 10px;
+}
+
+.dms > h3{
+    font-weight: bold !important;
+    color: white !important;
 }
