@@ -7,7 +7,6 @@ import Workspace from "./Workspace/Workspace.js";
 import LandingPage from "./LandingPage/LandingPage";
 import "semantic-ui-css/semantic.min.css";
 
-
 function App() {
 	return (
 		<Routes>
@@ -15,7 +14,6 @@ function App() {
 			<Route path='/registration' element={<Registration />}></Route>
 			<Route path='/workspace' element={<Workspace />}></Route>
 			<Route path='/landingpage' element={<LandingPage />}></Route>
-
 		</Routes>
 	);
 }
