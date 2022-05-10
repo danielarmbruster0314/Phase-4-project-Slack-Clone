@@ -71,7 +71,7 @@ function LandingPage() {
                     '
 					>
 						Need a nap? <br /> Don't forget to
-						<a href='/sign'>
+						<a href='/'>
 							<strong> Log Out</strong>
 						</a>
 					</Message>

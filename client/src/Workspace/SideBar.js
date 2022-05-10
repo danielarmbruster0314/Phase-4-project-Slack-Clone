@@ -16,6 +16,15 @@ import {MdAddBox} from 'react-icons/md';
 function SideBar({channels}) {
 
 
+
+function changeRoom(){
+	
+}
+
+
+let allchannels = channels?.map( channel => (
+<SideBarOption onClick={changeRoom} title={channel.name}/>
+))
 	function addChannelOption(){
 
 	}
@@ -28,7 +37,10 @@ function SideBar({channels}) {
 			key: 1,
 			title: "Channels",
 			content: {
-				content: <SideBarOption Icon={MdAddBox} addChannelOption={addChannelOption} title="Add channels" />},},
+				content: (<>
+				<SideBarOption Icon={MdAddBox} addChannelOption={addChannelOption} title="Add channels" />
+				{allchannels}
+				</>)},},
 			{
 				key: 1,
 				title: "Direct messages",

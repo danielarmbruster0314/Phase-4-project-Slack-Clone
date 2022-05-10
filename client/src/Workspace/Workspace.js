@@ -7,8 +7,8 @@ import Chat from "./Chat.js";
 // each file will have their own css, make sure to import them
 
 function Workspace() {
-const [boom, setBoom] = useState("")
-let room ={name:"general"}
+const [room, setRoom] = useState({name:"general"})
+const [channels, setChannels] = useState([])
 
 	return (
 		<div className="workspace">

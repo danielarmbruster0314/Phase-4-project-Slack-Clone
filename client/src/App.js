@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./LoginPage/Login";
 import Registration from "./LoginPage/Registration";
@@ -9,6 +9,7 @@ import "semantic-ui-css/semantic.min.css";
 
 
 function App() {
+const [user, setUser] = useState({})
 	return (
 		<Routes>
 			<Route path='/' element={<Login />}></Route>
