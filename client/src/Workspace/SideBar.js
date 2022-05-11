@@ -13,7 +13,7 @@ import {FaRegEdit} from 'react-icons/fa'
 
 
 
-function SideBar({channels, user}) {
+function SideBar({channels, user,workspace}) {
 
 
 
@@ -58,7 +58,7 @@ let allchannels = channels?.map( channel => (
 		<div className="sidebar">
 			<div className="sidebar_header">
 				<div className='sidebar_header_info'>
-					<h2>Workspace Name</h2>
+					<h2>{workspace.name}</h2>
 					<h3>
 						<FiberManualRecordIcon />
 						{user?.username}

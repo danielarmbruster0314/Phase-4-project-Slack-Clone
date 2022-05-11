@@ -7,7 +7,7 @@ import Chat from "./Chat.js";
 
 // each file will have their own css, make sure to import them
 
-function Workspace() {
+function Workspace({workspace}) {
 const [room, setRoom] = useState({name:"general"})
 const [channels, setChannels] = useState([])
 
@@ -16,8 +16,8 @@ const [channels, setChannels] = useState([])
 		
 			<Header />
 			<div className="workspace_view">
-			<SideBar />
-			<Chat room={room}/>
+			<SideBar workspace={workspace}/>
+			<Chat room={room} />
 			</div>
 			
 		</div>
