@@ -9,6 +9,12 @@ function selectChannel(){
 
 
 function addChannel(){
+    const channelName = prompt("Enter Channel Name")
+			if(channelName) {
+				console.log(channelName)
+			}else{
+				console.log("No Name was entered")
+			}
 
 }
 

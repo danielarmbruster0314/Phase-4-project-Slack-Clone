@@ -4,6 +4,7 @@ import Header from "./Header.js";
 import SideBar from "./SideBar.js";
 import Channel from "./Channel.js";
 import Chat from "./Chat.js";
+
 // each file will have their own css, make sure to import them
 
 function Workspace() {

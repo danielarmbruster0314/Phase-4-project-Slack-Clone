@@ -1,4 +1,8 @@
 import "./Chat.css";
+import Message from "./Message";
+import ChatInput from "./ChatInput.js";
+
+
 
 function Chat({ room }){
 return (
@@ -17,6 +21,11 @@ return (
     </p>
     </div>
         </div>
+        <div className="chat_messages">
+    <Message />
+        </div>
+        <ChatInput />
+        {/*input */}
     </div>
 )
 }

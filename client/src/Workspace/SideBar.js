@@ -9,7 +9,7 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import {BiBuildings} from 'react-icons/bi';
 import { Accordion } from 'semantic-ui-react'
 import {MdAddBox} from 'react-icons/md';
-
+import {FaRegEdit} from 'react-icons/fa'
 
 
 
@@ -26,13 +26,13 @@ let allchannels = channels?.map( channel => (
 <SideBarOption onClick={changeRoom} title={channel.name}/>
 ))
 	function addChannelOption(){
-
+		
 	}
 	const panels = [{
 		key: 1,
 		title: "Connections",
 		content: {
-			content: <SideBarOption  title="Slack Connect"/>},},
+			content: <SideBarOption  title="Slack-clone"/>},},
 		{
 			key: 1,
 			title: "Channels",
@@ -62,7 +62,7 @@ let allchannels = channels?.map( channel => (
 						{user?.username}
 					</h3>
 				</div>
-				<CreateIcon />
+				<span className="sidebaroption_edit"><FaRegEdit /></span>
 			</div>
 			<SideBarOption Icon={ InsertCommentIcon } title="Threads"/>
 			<SideBarOption Icon={ FaComments }  name=" dms" title="All DMs"/>

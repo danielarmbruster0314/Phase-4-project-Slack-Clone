@@ -34,11 +34,21 @@
     color: green;
 }
 
-.sidebar_header  > .MuiSvgIcon-root {
-    padding: 8px;
-    color: rgb(145,145,147);
-    background-color: white;
-    border-radius: 999px;
+.sidebaroption_edit > svg {
+    padding: 8px; 
+    color: black;
+    height: 35px;
+    width: 35px;
+    
+    
+}
+.sidebaroption_edit{ 
+   
+border-radius: 999px;
+background-color: #D1D2D3;
+height: 34px;
+    width: 34px;
+    
 }
 
 .sidebar > hr {
