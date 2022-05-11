@@ -13,7 +13,7 @@ import {FaRegEdit} from 'react-icons/fa'
 
 
 
-function SideBar({channels}) {
+function SideBar({channels, user}) {
 
 
 
@@ -28,30 +28,32 @@ let allchannels = channels?.map( channel => (
 	function addChannelOption(){
 		
 	}
+
+
+
+
+
 	const panels = [{
 		key: 1,
 		title: "Connections",
 		content: {
 			content: <SideBarOption  title="Slack-clone"/>},},
 		{
-			key: 1,
-			title: "Channels",
-			content: {
-				content: (<>
+		key: 1,
+		title: "Channels",
+		content: {
+			content: (<>
 				<SideBarOption Icon={MdAddBox} addChannelOption={addChannelOption} title="Add channels" />
-				{allchannels}
+					{allchannels}
 				</>)},},
-			{
-				key: 1,
-				title: "Direct messages",
-				content: "hello",}
-	
-	
+		{
+		key: 1,
+		title: "Direct messages",
+		content: "hello",}
 	]
 	
 
 
-	let user = {}
 	return (
 		<div className="sidebar">
 			<div className="sidebar_header">
