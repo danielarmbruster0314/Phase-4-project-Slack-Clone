@@ -3,7 +3,7 @@ import CreateIcon from "@mui/icons-material/Create";
 import { useState, useEffect } from "react";
 import React from "react";
 import "./SideBar.css";
-import SideBarOption from "/Users/altheajohn/Documents/GitHub/Phase-4-project-Slack-Clone/client/src/Workspace/SideBar.js";
+import SideBarOption from "./SidebarOPtion";
 import InsertCommentIcon from "@mui/icons-material/InsertComment";
 import { FaComments } from "react-icons/fa";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
