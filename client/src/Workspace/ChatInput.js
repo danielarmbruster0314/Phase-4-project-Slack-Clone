@@ -18,7 +18,7 @@ function sendMessage(e){
 			if (r.ok){
 				r.json().then((data) => {
                     setmessages([...messages,data])
-        ;
+                    window.scrollTo(0, document.body.scrollHeight);
                 })
 			}else{
 				r.json().then((error)=> console.log(error) )
@@ -28,7 +28,6 @@ function sendMessage(e){
     setInput('')
 }
 
-const chatpage = document.getElementsByClassName("chat");
 return(
     <di className='chat_input'>
         <form>
