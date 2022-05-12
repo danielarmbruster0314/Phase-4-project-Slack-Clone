@@ -4,8 +4,8 @@ import ChatInput from "./ChatInput.js";
 
 
 
-function Chat({ room }){
-    console.log(room)
+function Chat({ room, messages, user, setmessages }){
+
 return (
     <div className="chat">
         <div className="chat_header">
@@ -23,10 +23,10 @@ return (
     </div>
         </div>
         <div className="chat_messages">
-            {room.messages?.map(message => <Message key={message.id} message={message.content} />)}
-    <Message />
+            {messages?.map(message => <Message key={message.id} message={message.content} user={message.user}/>)}
+    
         </div>
-        <ChatInput />
+        <ChatInput room={room} user={user} messages={messages} setmessages={setmessages}/>
         
     </div>
 )
