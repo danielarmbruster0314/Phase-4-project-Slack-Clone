@@ -15,16 +15,20 @@ workspace2 = Workspace.create(name: "book-of-peter", user_id: user2.id)
 workspace3 = Workspace.create(name: "book-of-mathew", user_id: user3.id)
 
 
-
+# invitations for user 1
 invitation1 = Invitation.create( user_id: user1.id,workspace_id: workspace2.id)
 invitation2 = Invitation.create( user_id: user1.id,workspace_id: workspace3.id)
+invitation7 = Invitation.create( user_id: user1.id,workspace_id: workspace1.id)
+
+# invitations for user 2
 invitation3 = Invitation.create( user_id: user2.id,workspace_id: workspace1.id)
 invitation4 = Invitation.create( user_id: user2.id,workspace_id: workspace3.id)
+invitation8 = Invitation.create( user_id: user2.id,workspace_id: workspace2.id)
+
+#invitations for user 3
 invitation5 = Invitation.create( user_id: user3.id,workspace_id: workspace1.id)
 invitation6 = Invitation.create( user_id: user3.id,workspace_id: workspace2.id)
-
-
-
+invitation9 = Invitation.create( user_id: user3.id,workspace_id: workspace3.id)
 
 room1 = Room.create(name: "chapter-1" ,workspace_id: workspace1.id)
 room2 = Room.create(name: "chapter-2", workspace_id: workspace1.id)

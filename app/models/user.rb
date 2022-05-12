@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_many :invitations
+    has_many :workspaces
     has_many :workspaces, through: :invitations
     has_many :messages
     has_secure_password

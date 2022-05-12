@@ -25,8 +25,8 @@ function changeRoom(obj){
 	.then(res => res.json())
 	.then(data => {
 		console.log(data)
-		setRoom(obj)
-		setmessages(obj.messages)
+		setRoom(data)
+		setmessages(data.messages)
 	})
 	
 }
@@ -68,17 +68,17 @@ let allchannels = listofChannels?.map( channel => (
 		content: "hello",}
 	]
 	
-console.log(user)
+
 
 	return (
 		<div className="sidebar">
 			<div className="sidebar_header">
 				<div className='sidebar_header_info'>
 					<h2 className="sidebar_workspacename">{workspace.name}</h2>
-					<h3>
+					{/* <h3>
 						<FiberManualRecordIcon />
 						{user?.username}
-					</h3>
+					</h3> */}
 				</div>
 				<span className="sidebaroption_edit"><FaRegEdit /></span>
 			</div>
