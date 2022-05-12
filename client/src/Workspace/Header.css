@@ -61,4 +61,6 @@
     margin-right: 20px;
 }
 
-
+.header_avatar{
+    cursor: pointer;
+}

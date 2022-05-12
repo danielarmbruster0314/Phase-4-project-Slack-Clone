@@ -18,7 +18,7 @@ return (
 
     <div className="chat_header_right">
     <p>
-    Deatils
+    Details
     </p>
     </div>
         </div>

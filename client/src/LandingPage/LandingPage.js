@@ -56,10 +56,11 @@ function handleChatRoom(id){
 							<p>Workspace for {user.email}</p>
 							{theWorkspcaes?.map((space) => (
 								<Button
+								key={theWorkspcaes.id}
 								fluid
 								size='big'
 								animated='fade'
-								color='#fffff'
+								color='purple'
 								style={{ marginBottom: "1em" }}
 								pointing
 								content={space.name}
@@ -68,28 +69,7 @@ function handleChatRoom(id){
 								onClick={()=> handleChatRoom(space.id)}
 							></Button>
 							))}
-							<Button
-								fluid
-								size='big'
-								animated='fade'
-								color='#fffff'
-								style={{ marginBottom: "1em" }}
-								pointing
-								content='This is your first workspace'
-								icon='arrow right'
-								labelPosition='right'
-							></Button>
-							<Button
-								fluid
-								animated='fade'
-								size='big'
-								color='purple'
-								style={{ marginBottom: "1em" }}
-								pointing
-								content='This is your second workspace'
-								icon='arrow right'
-								labelPosition='right'
-							></Button>
+							
 
 							<Button
 								fluid

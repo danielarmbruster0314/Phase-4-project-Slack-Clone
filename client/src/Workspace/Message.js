@@ -3,6 +3,7 @@ import {Avatar} from "@material-ui/core";
 
 function Message({ message, user, userImage }){
     console.log(user)
+    const nameCapitalized = user?.username.charAt(0).toUpperCase() + user?.username.slice(1)
     return (
         <div className="message">
             <div className='img'>
@@ -16,7 +17,7 @@ function Message({ message, user, userImage }){
             </div>
             <div className='message_info'>
                 
-              <h4>{user?.username} user name</h4>
+              <h4>{nameCapitalized}</h4>
                 <p>
                 {message}
                 </p>
