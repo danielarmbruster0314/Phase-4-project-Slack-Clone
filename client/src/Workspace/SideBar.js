@@ -1,5 +1,6 @@
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import CreateIcon from '@mui/icons-material/Create';
+import {useState, useEffect } from 'react';
 import React from "react";
 import "./SideBar.css";
 import  SideBarOption from '/home/daniel/Development/code/phase-4/project-template-react-rails-api/client/src/Workspace/SidebarOPtion.js';
@@ -13,18 +14,32 @@ import {FaRegEdit} from 'react-icons/fa'
 
 
 
-function SideBar({channels, user,workspace}) {
+function SideBar({ user,workspace,setRoom, setmessages}) {
+const [listofChannels, setListOfChannels] = useState([])
+useEffect(() => {
+	setListOfChannels(workspace.list_rooms)
+},[]) 
 
-
-
-function changeRoom(){
+function changeRoom(obj){
+	fetch(`/rooms/${obj.id}`)
+	.then(res => res.json())
+	.then(data => {
+		console.log(data)
+		setRoom(obj)
+		setmessages(obj.messages)
+	})
 	
 }
 
 
-let allchannels = channels?.map( channel => (
-<SideBarOption onClick={changeRoom} title={channel.name}/>
+let allchannels = listofChannels?.map( channel => (
+<SideBarOption key={channel.id} changeRoom={changeRoom} title={channel.name} channel={channel}/>
 ))
+
+
+
+
+
 	function addChannelOption(){
 		
 	}
@@ -39,26 +54,27 @@ let allchannels = channels?.map( channel => (
 		content: {
 			content: <SideBarOption  title="Slack-clone"/>},},
 		{
-		key: 1,
+		key: 2,
 		title: "Channels",
 		content: {
 			content: (<>
-				<SideBarOption Icon={MdAddBox} addChannelOption={addChannelOption} title="Add channels" />
-					{allchannels}
+				{allchannels}
+				<SideBarOption Icon={MdAddBox} addChannelOption={()=>addChannelOption} title="Add channels" />
+					
 				</>)},},
 		{
-		key: 1,
+		key: 3,
 		title: "Direct messages",
 		content: "hello",}
 	]
 	
-
+console.log(user)
 
 	return (
 		<div className="sidebar">
 			<div className="sidebar_header">
 				<div className='sidebar_header_info'>
-					<h2>{workspace.name}</h2>
+					<h2 className="sidebar_workspacename">{workspace.name}</h2>
 					<h3>
 						<FiberManualRecordIcon />
 						{user?.username}

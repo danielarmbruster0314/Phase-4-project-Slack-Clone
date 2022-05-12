@@ -1,9 +1,9 @@
 import './SideBarOption.css'
 
-function SideBarOption({ Icon, title, name, addChannelOption }){
+function SideBarOption({ Icon, title, name, addChannelOption,changeRoom,channel }){
 
 function selectChannel(){
-
+changeRoom(channel)
 }
 
 

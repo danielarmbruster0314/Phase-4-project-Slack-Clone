@@ -15,16 +15,18 @@
 .sidebar_header_info{
     flex: 1;
 }
-.sidebar_header_info > h2 {
-    font-size: 15px;
+.sidebar_workspacename {
+    font-size: 25px;
     font-weight: 900;
-    margin-bottom: 5px;
+  
 }
 .sidebar_header_info > h3{
     display: flex;
     align-items: center;
     font-size: 13px;
     font-weight: 400;
+    height: 22px;
+    
 }
 
 .sidebar_header_info > h3 > .MuiSvgIcon-root {
