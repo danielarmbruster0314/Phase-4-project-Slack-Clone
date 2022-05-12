@@ -78,7 +78,7 @@ function Registration() {
 					</Form>
 					<Message>
 						Already Have An Account?
-						<Link to='/'>
+						<Link to='/' style={{ padding: "5px" }}>
 							<strong> Log In </strong>
 						</Link>
 					</Message>

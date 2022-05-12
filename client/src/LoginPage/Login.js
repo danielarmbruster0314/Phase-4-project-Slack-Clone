@@ -36,7 +36,7 @@ function Login() {
 								fluid
 								icon='user'
 								iconPosition='left'
-								placeholder='E-mail address'
+								placeholder='Username'
 							/>
 							<Form.Input
 								fluid
@@ -51,9 +51,9 @@ function Login() {
 							</Button>
 						</Segment>
 					</Form>
-					<Message>
-						New to us?{" "}
-						<Link to='/registration'>
+					<Message textAlign='center'>
+						New User?
+						<Link to='/registration' style={{ padding: "5px" }}>
 							<strong> Sign Up</strong>
 						</Link>
 					</Message>
