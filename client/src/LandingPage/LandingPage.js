@@ -1,6 +1,6 @@
-import React,{ useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import {
 	Button,
 	Form,
@@ -13,28 +13,22 @@ import "./LandingPage.css";
 import LogoHeader from "./Header";
 import Footer from "./Footer";
 
-function LandingPage({user, setWorkspace}) {
+function LandingPage({ user, setWorkspace }) {
 	const navigate = useNavigate();
-const [theWorkspcaes, setTheWorkspace] = useState([])
+	const [theWorkspcaes, setTheWorkspace] = useState([]);
 
 useEffect(() => {
 	fetch(`/users/${user.id}`)
 	.then(res => res.json())
-	.then(data => {
-		console.log(data)
-		setTheWorkspace(data.avaliable_workspaces)
-	})
+	.then(data => setTheWorkspace(data.avaliable_workspaces))
 },[]) 
 
 
 function handleChatRoom(id){
 	fetch(`/workspaces/${id}`)
 	.then(res => res.json())
-	.then(data => {
-	setWorkspace(data)
+	.then(data => setWorkspace(data))
 	navigate('/workspace')
-	})
-	
 }
 
 	return (
@@ -56,17 +50,17 @@ function handleChatRoom(id){
 							<p>Workspace for {user.email}</p>
 							{theWorkspcaes?.map((space) => (
 								<Button
-								fluid
-								size='big'
-								animated='fade'
-								color='#fffff'
-								style={{ marginBottom: "1em" }}
-								pointing
-								content={space.name}
-								icon='arrow right'
-								labelPosition='right'
-								onClick={()=> handleChatRoom(space.id)}
-							></Button>
+									fluid
+									size='big'
+									animated='fade'
+									color='#fffff'
+									style={{ marginBottom: "1em" }}
+									pointing
+									content={space.name}
+									icon='arrow right'
+									labelPosition='right'
+									onClick={() => handleChatRoom(space.id)}
+								></Button>
 							))}
 							<Button
 								fluid
@@ -108,13 +102,16 @@ function handleChatRoom(id){
 						size='large
                     '
 					>
-						Need a nap? <br /> Don't forget to
-						<a href='/'>
+						<strong style={{ padding: "5px" }}> Need a nap? </strong> Don't
+						forget to
+						<Link to='/logout' style={{ padding: "5px" }}>
 							<strong> Log Out</strong>
-						</a>
+						</Link>
 					</Message>
 				</Grid.Column>
 			</Grid>
+			<br />
+			<br />
 			<br />
 			<br />
 			<br />

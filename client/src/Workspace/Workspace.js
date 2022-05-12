@@ -9,7 +9,7 @@ import Chat from "./Chat.js";
 
 function Workspace({workspace,user}) {
 const [room, setRoom] = useState({name:"Please Select A Chat"})
-const [messages, setmessages] = useState([{content:"user Messages apear hear"}])
+const [messages, setmessages] = useState({content:"user Messages apear hear"})
 
 	return (
 		<div className="workspace">
@@ -17,7 +17,7 @@ const [messages, setmessages] = useState([{content:"user Messages apear hear"}])
 			<Header user={user}/>
 			<div className="workspace_view">
 			<SideBar channels={workspace.list_rooms} workspace={workspace} user={user} setRoom={setRoom} setmessages={setmessages}/>
-			<Chat room={room} messages={messages} setRoom={setRoom} user={user} setmessages={setmessages}/>
+			<Chat room={room} messages={messages} setRoom={setRoom} />
 			</div>
 			
 		</div>
