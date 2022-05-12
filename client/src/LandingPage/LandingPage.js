@@ -17,25 +17,23 @@ function LandingPage({ user, setWorkspace }) {
 	const navigate = useNavigate();
 	const [theWorkspcaes, setTheWorkspace] = useState([]);
 
-useEffect(() => {
-	fetch(`/users/${user.id}`)
-	.then(res => res.json())
-	.then(data => {
-		console.log(data)
-		setTheWorkspace(data.avaliable_workspaces)
-	})
-},[]) 
+	useEffect(() => {
+		fetch(`/users/${user.id}`)
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				setTheWorkspace(data.avaliable_workspaces);
+			});
+	}, []);
 
-
-function handleChatRoom(id){
-	fetch(`/workspaces/${id}`)
-	.then(res => res.json())
-	.then(data => {
-	setWorkspace(data)
-	navigate('/workspace')
-	})
-	
-}
+	function handleChatRoom(id) {
+		fetch(`/workspaces/${id}`)
+			.then((res) => res.json())
+			.then((data) => {
+				setWorkspace(data);
+				navigate("/workspace");
+			});
+	}
 
 	return (
 		<>
