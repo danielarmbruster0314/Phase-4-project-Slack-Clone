@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
 	Button,
 	Form,
@@ -36,7 +36,7 @@ function Login() {
 								fluid
 								icon='user'
 								iconPosition='left'
-								placeholder='E-mail address'
+								placeholder='Username'
 							/>
 							<Form.Input
 								fluid
@@ -51,11 +51,11 @@ function Login() {
 							</Button>
 						</Segment>
 					</Form>
-					<Message>
-						New to us?{" "}
-						<a href='/registration'>
+					<Message textAlign='center'>
+						New User?
+						<Link to='/registration' style={{ padding: "5px" }}>
 							<strong> Sign Up</strong>
-						</a>
+						</Link>
 					</Message>
 				</Grid.Column>
 			</Grid>

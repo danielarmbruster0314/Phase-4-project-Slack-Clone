@@ -3,6 +3,12 @@
     flex-grow: 1;
     overflow-y: scroll;
     padding-bottom: 150px;
+    background-color: #1A1D21;
+    color: white;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+   
 }
 
 .chat_header{
@@ -11,6 +17,7 @@
     justify-content: space-between;
     padding: 20px; 
     border-bottom: 1px solid lightgray;
+    
 }
 
 .chat_headerRight > p {

@@ -12,6 +12,7 @@ import "./Login.css";
 
 import LogoHeader from "./Login_Header";
 import Footer from "./Login_Footer";
+import { Link } from "react-router-dom";
 
 function Registration() {
 	return (
@@ -30,34 +31,45 @@ function Registration() {
 
 					<Form size='large'>
 						<Segment stacked>
+							{/* User Info  */}
 							<Form.Input
 								fluid
+								name='username'
 								icon='user'
 								iconPosition='left'
 								placeholder='User Name'
+								type='text'
 							/>
+
+							{/* User E-mail  */}
 							<Form.Input
 								fluid
+								name='email'
 								icon='mail'
 								iconPosition='left'
 								placeholder='E-mail address'
+								type='email'
 							/>
+							{/* User Password*/}
 							<Form.Input
 								fluid
+								name='password'
 								icon='lock'
 								iconPosition='left'
 								placeholder='Password'
 								type='password'
 							/>
-
+							{/* End of Password Input */}
 							<Form.Input
 								fluid
-								icon='lock'
+								name='passwordConfirmation'
+								icon='repeat'
 								iconPosition='left'
 								placeholder='Confirm Password'
 								type='password'
 							/>
 							<p>Must match the first password input field.</p>
+							{/* End of Passwor Confirmation Input */}
 
 							<Button color='purple' fluid size='large'>
 								<a href='/landingpage'> Join </a>
@@ -66,9 +78,9 @@ function Registration() {
 					</Form>
 					<Message>
 						Already Have An Account?
-						<a href='/'>
+						<Link to='/' style={{ padding: "5px" }}>
 							<strong> Log In </strong>
-						</a>
+						</Link>
 					</Message>
 				</Grid.Column>
 			</Grid>
