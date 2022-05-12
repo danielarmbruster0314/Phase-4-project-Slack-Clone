@@ -1,6 +1,5 @@
-import React, {useState }from "react";
-// import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import {
 	Button,
 	Form,
@@ -13,32 +12,7 @@ import "./Login.css";
 import LogoHeader from "./Login_Header";
 import Footer from "./Login_Footer";
 
-
-function Login({setUser}) {
-	const navigate = useNavigate();
-	const [username, setUsername] = useState('')
-	const [password, setPassword] = useState('')
-	console.log(username)
-	console.log(password)
-
-	function handleSubmit(e){
-		e.preventDefault();
-		fetch("/login", {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ username, password }),
-		})
-		.then((r) => {
-			if (r.ok){
-				r.json().then((user) => setUser(user))
-				navigate('/landingpage')
-			}else{
-				r.json().then((error)=> console.log(error) )
-			}
-		})
-	}
+function Login() {
 	return (
 		<>
 			<LogoHeader />
@@ -62,9 +36,7 @@ function Login({setUser}) {
 								fluid
 								icon='user'
 								iconPosition='left'
-								placeholder='Username'
-								value={username}
-								onChange={e => setUsername(e.target.value)}
+								placeholder='E-mail address'
 							/>
 							<Form.Input
 								fluid
@@ -72,20 +44,18 @@ function Login({setUser}) {
 								iconPosition='left'
 								placeholder='Password'
 								type='password'
-								value={password}
-								onChange={e => setPassword(e.target.value)}
 							/>
 
-							<Button color='purple' fluid size='large' onClick={handleSubmit}>
+							<Button color='purple' fluid size='large'>
 								<a href='/landingpage'> Login </a>
 							</Button>
 						</Segment>
 					</Form>
 					<Message>
 						New to us?{" "}
-						<a href='/registration'>
+						<Link to='/registration'>
 							<strong> Sign Up</strong>
-						</a>
+						</Link>
 					</Message>
 				</Grid.Column>
 			</Grid>
