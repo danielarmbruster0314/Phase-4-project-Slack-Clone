@@ -15,6 +15,10 @@ workspace2 = Workspace.create(name: "book-of-peter", user_id: user2.id)
 workspace3 = Workspace.create(name: "book-of-mathew", user_id: user3.id)
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of e4a6fc04 (got the messaginng to work)
 invitation1 = Invitation.create( user_id: user1.id,workspace_id: workspace2.id)
 invitation2 = Invitation.create( user_id: user1.id,workspace_id: workspace3.id)
 invitation3 = Invitation.create( user_id: user2.id,workspace_id: workspace1.id)

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :rooms 
+  resources :rooms
   resources :workspaces
-  resources :messages 
+  resources :messages
   resources :invitations
   resources :users
   post "/signup", to: "users#create"
