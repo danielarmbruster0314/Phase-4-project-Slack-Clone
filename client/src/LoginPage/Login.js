@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-// import { Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import {
 	Button,
 	Form,
@@ -11,33 +11,8 @@ import {
 import "./Login.css";
 import LogoHeader from "./Login_Header";
 import Footer from "./Login_Footer";
-import { Link } from "react-router-dom";
 
 function Login() {
-	// const [username, setUsername] = useState('')
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [errors, setErrors] = useState([]);
-
-	function onSubmit(e) {
-		e.preventDefault();
-		const user = {
-			email: email,
-			password,
-		};
-
-		fetch(`http://localhost:4000/users`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(user),
-		})
-			.then((res) => res.json())
-			.then((json) => {
-				console.log(json);
-				if (json.errors) setErrors(Object.entries(json.errors));
-			});
-	}
-
 	return (
 		<>
 			<LogoHeader />
@@ -55,20 +30,15 @@ function Login() {
 					<p>
 						We suggest using the <strong> e-mail you use at work.</strong>
 					</p>
-					<Form onSubmit={onSubmit} size='large'>
+					<Form size='large'>
 						<Segment stacked>
 							<Form.Input
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
 								fluid
 								icon='user'
 								iconPosition='left'
 								placeholder='E-mail address'
-								type='email'
 							/>
 							<Form.Input
-								value={password}
-								onChange={(e) => setPassword(e.target.value)}
 								fluid
 								icon='lock'
 								iconPosition='left'
@@ -81,13 +51,8 @@ function Login() {
 							</Button>
 						</Segment>
 					</Form>
-					{errors
-						? errors.map((e) => (
-								<div key={errors.length++}>{e[0] + ": " + e[1]}</div>
-						  ))
-						: null}
 					<Message>
-						New to us?
+						New to us?{" "}
 						<Link to='/registration'>
 							<strong> Sign Up</strong>
 						</Link>
@@ -101,23 +66,3 @@ function Login() {
 }
 
 export default Login;
-
-const db = {
-	users: [
-		{
-			email: "althea@gmail.com",
-			password: "tacos123",
-			id: "1",
-		},
-		{
-			email: "john@gmail.com",
-			password: "john123",
-			id: "2",
-		},
-		{
-			email: "altheajohn@gmail.com",
-			password: "123tacos",
-			id: "3",
-		},
-	]
-}

@@ -1,6 +1,11 @@
 import "./Chat.css";
+import Message from "./Message";
+import ChatInput from "./ChatInput.js";
+
+
 
 function Chat({ room }){
+    console.log(room)
 return (
     <div className="chat">
         <div className="chat_header">
@@ -17,6 +22,12 @@ return (
     </p>
     </div>
         </div>
+        <div className="chat_messages">
+            {room.messages?.map(message => <Message key={message.id} message={message.content} />)}
+    <Message />
+        </div>
+        <ChatInput />
+        
     </div>
 )
 }

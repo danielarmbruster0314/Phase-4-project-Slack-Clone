@@ -1,14 +1,20 @@
 import './SideBarOption.css'
 
-function SideBarOption({ Icon, title, name, addChannelOption }){
+function SideBarOption({ Icon, title, name, addChannelOption,changeRoom,channel }){
 
 function selectChannel(){
-
+changeRoom(channel)
 }
 
 
 
 function addChannel(){
+    const channelName = prompt("Enter Channel Name")
+			if(channelName) {
+				console.log(channelName)
+			}else{
+				console.log("No Name was entered")
+			}
 
 }
 

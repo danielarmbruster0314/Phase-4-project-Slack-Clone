@@ -1,5 +1,6 @@
-import React from "react";
-// import { Link } from "react-router-dom";
+import React,{ useEffect, useState} from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import {
 	Button,
 	Form,
@@ -12,7 +13,24 @@ import "./LandingPage.css";
 import LogoHeader from "./Header";
 import Footer from "./Footer";
 
-function LandingPage() {
+function LandingPage({user, setWorkspace}) {
+	const navigate = useNavigate();
+const [theWorkspcaes, setTheWorkspace] = useState([])
+
+useEffect(() => {
+	fetch(`/users/${user.id}`)
+	.then(res => res.json())
+	.then(data => setTheWorkspace(data.avaliable_workspaces))
+},[]) 
+
+
+function handleChatRoom(id){
+	fetch(`/workspaces/${id}`)
+	.then(res => res.json())
+	.then(data => setWorkspace(data))
+	navigate('/workspace')
+}
+
 	return (
 		<>
 			<LogoHeader />
@@ -29,7 +47,21 @@ function LandingPage() {
 					<p>Friendly reminder to stay hydrated 😎 </p>
 					<Form size='large'>
 						<Segment stackable>
-							<p>Workspace for user@e-mail.com</p>
+							<p>Workspace for {user.email}</p>
+							{theWorkspcaes?.map((space) => (
+								<Button
+								fluid
+								size='big'
+								animated='fade'
+								color='#fffff'
+								style={{ marginBottom: "1em" }}
+								pointing
+								content={space.name}
+								icon='arrow right'
+								labelPosition='right'
+								onClick={()=> handleChatRoom(space.id)}
+							></Button>
+							))}
 							<Button
 								fluid
 								size='big'
@@ -77,9 +109,6 @@ function LandingPage() {
 					</Message>
 				</Grid.Column>
 			</Grid>
-			<br />
-			<br />
-			<br />
 			<br />
 			<br />
 			<br />

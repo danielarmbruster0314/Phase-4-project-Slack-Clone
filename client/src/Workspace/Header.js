@@ -5,8 +5,8 @@ import { FiSearch } from 'react-icons/fi';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import "./Header.css";
 
-function Header() {
-const user = {}
+function Header({user}) {
+
 	return (
 		<div className="header_div">
 			<div className="header_div_left">
