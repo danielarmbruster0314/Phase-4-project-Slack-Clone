@@ -17,6 +17,25 @@ function LandingPage({ user, setWorkspace }) {
 	const navigate = useNavigate();
 	const [theWorkspcaes, setTheWorkspace] = useState([]);
 
+<<<<<<< HEAD
+	useEffect(() => {
+		fetch(`/users/${user.id}`)
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				setTheWorkspace(data.avaliable_workspaces);
+			});
+	}, []);
+
+	function handleChatRoom(id) {
+		fetch(`/workspaces/${id}`)
+			.then((res) => res.json())
+			.then((data) => {
+				setWorkspace(data);
+				navigate("/workspace");
+			});
+	}
+=======
 useEffect(() => {
 	fetch(`/users/${user.id}`)
 	.then(res => res.json())
@@ -30,6 +49,7 @@ function handleChatRoom(id){
 	.then(data => setWorkspace(data))
 	navigate('/workspace')
 }
+>>>>>>> parent of e4a6fc04 (got the messaginng to work)
 
 	return (
 		<>
