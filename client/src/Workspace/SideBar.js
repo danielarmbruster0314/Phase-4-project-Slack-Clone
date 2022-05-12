@@ -5,11 +5,14 @@ import React from "react";
 import "./SideBar.css";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 352c0011cc3d8063b9670fc132dd26a6daaa654c
 =======
 >>>>>>> 352c0011cc3d8063b9670fc132dd26a6daaa654c
+=======
+>>>>>>> parent of 9ac46a7d (oops)
 import SideBarOption from "./SidebarOPtion";
 import InsertCommentIcon from "@mui/icons-material/InsertComment";
 import { FaComments } from "react-icons/fa";
@@ -18,6 +21,7 @@ import { BiBuildings } from "react-icons/bi";
 import { Accordion } from "semantic-ui-react";
 import { MdAddBox } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -48,6 +52,8 @@ import { Accordion } from 'semantic-ui-react'
 import {MdAddBox} from 'react-icons/md';
 import {FaRegEdit} from 'react-icons/fa'
 >>>>>>> 352c0011cc3d8063b9670fc132dd26a6daaa654c
+=======
+>>>>>>> parent of 9ac46a7d (oops)
 
 function SideBar({ user, workspace, setRoom, setmessages }) {
 	const [listofChannels, setListOfChannels] = useState([]);
@@ -85,10 +91,13 @@ let allchannels = listofChannels?.map( channel => (
 	function addChannelOption(){
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> parent of e4a6fc04 (got the messaginng to work)
 >>>>>>> 352c0011cc3d8063b9670fc132dd26a6daaa654c
+=======
+>>>>>>> parent of 9ac46a7d (oops)
 	}
 
 	let allchannels = listofChannels?.map((channel) => (
@@ -111,6 +120,7 @@ let allchannels = listofChannels?.map( channel => (
 			},
 		},
 		{
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -154,23 +164,29 @@ console.log(user)
 >>>>>>> parent of e4a6fc04 (got the messaginng to work)
 >>>>>>> 352c0011cc3d8063b9670fc132dd26a6daaa654c
 
+=======
+		key: 3,
+		title: "Direct messages",
+		content: "hello",}
+	]
+	
+console.log(user)
+
+>>>>>>> parent of 9ac46a7d (oops)
 	return (
 		<div className='sidebar'>
 			<div className='sidebar_header'>
 				<div className='sidebar_header_info'>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 9ac46a7d (oops)
 					<h2 className="sidebar_workspacename">{workspace.name}</h2>
 					<h3>
-
-					<h2 className='sidebar_workspacename'>{workspace.name}</h2>
-					{/* <h3>
-
-					<h2 className="sidebar_workspacename">{workspace.name}</h2>
-					<h3>
-
 						<FiberManualRecordIcon />
 						{user?.username}
+<<<<<<< HEAD
 	</h3>*/}</h3>
 =======
 <<<<<<< HEAD
@@ -184,6 +200,9 @@ console.log(user)
 						{user?.username}
 					</h3>
 >>>>>>> 352c0011cc3d8063b9670fc132dd26a6daaa654c
+=======
+					</h3>
+>>>>>>> parent of 9ac46a7d (oops)
 				</div>
 				<span className='sidebaroption_edit'>
 					<FaRegEdit />
