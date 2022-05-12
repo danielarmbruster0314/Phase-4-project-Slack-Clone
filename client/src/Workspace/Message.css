@@ -4,16 +4,20 @@
     padding: 20px;
 }
 
-.message > img {
-    height: 50px;
-    width: 50px;
-    object-fit: contain;
+.message_info{
+    
 }
 
 .message_info{
-padding-left: 50px;
+padding-left: 10px;
 }
 
 .message:hover{
     background-color: #222529;
+}
+.img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    border-radius: 25px;
 }
