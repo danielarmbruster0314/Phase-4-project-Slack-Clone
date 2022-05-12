@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // import { Link } from "react-router-dom";
 import {
 	Button,
@@ -101,3 +101,23 @@ function Login() {
 }
 
 export default Login;
+
+const db = {
+	users: [
+		{
+			email: "althea@gmail.com",
+			password: "tacos123",
+			id: "1",
+		},
+		{
+			email: "john@gmail.com",
+			password: "john123",
+			id: "2",
+		},
+		{
+			email: "altheajohn@gmail.com",
+			password: "123tacos",
+			id: "3",
+		},
+	]
+}
