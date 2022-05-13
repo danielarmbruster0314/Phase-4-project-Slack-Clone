@@ -7,7 +7,9 @@ import {
 	Message,
 	Segment,
 	Modal,
-	Input
+	Input,
+    Icon,
+    Popup
 } from "semantic-ui-react";
 import React, {useState} from 'react';
 
@@ -75,7 +77,11 @@ function selectChannel(){
 changeRoom(channel)
 }
 
-
+const style = {
+    borderRadius: 0,
+    opacity: 0.7,
+    padding: '2em',
+  }
 
 function addChannel(){
 			
@@ -92,7 +98,16 @@ function addChannel(){
                 <h3>{title}</h3>
             ): (
                 <h3 className="sidebaroption_chanel">
-                   <span className='sidebaroption_hash'>#</span>{title}
+                    
+                   <span className='sidebaroption_hash'>#</span>{title}    
+                  {/* <span className='button_option' > <Popup  floated="right"
+        trigger={
+          <Button color='black' icon='delete'  style={{fontSize: 10,paddin: 2}}/>
+        }
+        content={<Button inverted color='red' content='Confirm the launch' />}
+        on='click'
+        position='top right'
+      /></span> */}
                 </h3>
             )}
              <Modal
