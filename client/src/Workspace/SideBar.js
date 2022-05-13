@@ -33,7 +33,7 @@ function changeRoom(obj){
 
 
 let allchannels = listofChannels?.map( channel => (
-<SideBarOption key={channel.id} changeRoom={changeRoom} title={channel.name} channel={channel}/>
+<SideBarOption key={channel.id} changeRoom={changeRoom} title={channel.name} channel={channel} />
 ))
 
 
@@ -59,7 +59,7 @@ let allchannels = listofChannels?.map( channel => (
 		content: {
 			content: (<>
 				{allchannels}
-				<SideBarOption Icon={MdAddBox} addChannelOption={()=>addChannelOption} title="Add channels" />
+				<SideBarOption Icon={MdAddBox} addChannelOption={()=>addChannelOption} title="Add channels" workspace={workspace} setListOfChannels={setListOfChannels} listofChannels={listofChannels}/>
 					
 				</>)},},
 		{

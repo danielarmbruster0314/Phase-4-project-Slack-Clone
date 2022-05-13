@@ -1,5 +1,4 @@
 import React,{ useEffect, useState} from "react";
-import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import {
 	Button,
@@ -8,15 +7,87 @@ import {
 	Header,
 	Message,
 	Segment,
-	Icon
+	Modal,
+	Input
 } from "semantic-ui-react";
 import "./LandingPage.css";
 import LogoHeader from "./Header";
 import Footer from "./Footer";
 
+
+
+function exampleReducer(state, action) {
+	switch (action.type) {
+	  case 'OPEN_MODAL':
+		return { open: true, dimmer: action.dimmer }
+	  case 'CLOSE_MODAL':
+		return { open: false }
+	  default:
+		throw new Error()
+	}
+  }
+
+
+
+
+
+
 function LandingPage({user, setWorkspace, setUser}) {
 	const navigate = useNavigate();
 const [theWorkspcaes, setTheWorkspace] = useState([])
+const [channelname, setChannelname] = useState('')
+const [newworkspace,setNewworkspace] =useState(null)
+
+
+const [state, dispatch] = React.useReducer(exampleReducer, {
+    open: false,
+    dimmer: undefined,
+  })
+  const { open, dimmer } = state
+
+
+
+  function handleCreateChannel(){
+	const newworkspace ={
+		name: channelname, user_id: user.id
+	}
+	fetch('/workspaces', {
+method: 'POST',
+headers: {
+  'Accept': 'application/json',
+  'Content-Type': 'application/json'
+},
+body: JSON.stringify(newworkspace)
+  })
+  .then(res => res.json())
+  .then(data => {
+	  createInvitation(data)
+	})
+}
+
+
+function createInvitation(obj){
+	const newinvitation ={
+		user_id: user.id,workspace_id: obj.id
+	}
+	fetch('/invitations', {
+method: 'POST',
+headers: {
+  'Accept': 'application/json',
+  'Content-Type': 'application/json'
+},
+body: JSON.stringify(newinvitation)
+  })
+  .then(res => res.json())
+  .then(data => {
+	  console.log(data)
+	  setTheWorkspace([...theWorkspcaes,data.workspace])
+	  dispatch({ type: 'CLOSE_MODAL' })
+	})
+}
+
+
+console.log(channelname)
 
 useEffect(() => {
 	fetch(`/users/${user.id}`)
@@ -90,10 +161,30 @@ function handleLogout(){
 								color='blue'
 								style={{ marginBottom: "1em" }}
 								pointing
-								content='Create Another Workspace'
+								content='Create Workspace'
 								icon='plus'
 								labelPosition='right'
+								onClick={() => dispatch({ type: 'OPEN_MODAL', dimmer: 'blurring' })}
 							/>
+							 <Modal
+        dimmer={dimmer}
+        open={open}
+        onClose={() => dispatch({ type: 'CLOSE_MODAL' })}
+      >
+        <Modal.Header>Create a new channel</Modal.Header>
+        <Modal.Content>
+		<Input fluid icon='users' iconPosition='left' placeholder='#workspace-name-here' value={channelname} onChange={(e)=>setChannelname(e.target.value)}/>
+		
+        </Modal.Content>
+        <Modal.Actions>
+          <Button negative onClick={() => dispatch({ type: 'CLOSE_MODAL' })}>
+            Close
+          </Button>
+          <Button positive onClick={() =>handleCreateChannel()}>
+            Create
+          </Button>
+        </Modal.Actions>
+      </Modal>
 						</Segment>
 					</Form>
 					<Message style={{justifyContent: "center"}}
@@ -104,11 +195,11 @@ function handleLogout(){
 							<strong onClick={()=>handleLogout()} style={{justifyContent: "center", paddingLeft: 10, cursor:"pointer",color: 'blue'}}> Log Out</strong>
 						
 					</Message>
+					<Footer></Footer>
 				</Grid.Column>
 			</Grid >
 		
-			<div style={{ paddingTop: 100}}>
-			<Footer/></div>
+			
 		</>
 	);
 }
