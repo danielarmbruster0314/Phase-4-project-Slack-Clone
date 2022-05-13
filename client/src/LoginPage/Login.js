@@ -1,5 +1,5 @@
 import React, {useState }from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import {
 	Button,
@@ -54,7 +54,7 @@ function Login({setUser}) {
 					</Header>
 
 					<p>
-						We suggest using the <strong> e-mail you use at work.</strong>
+						Welcome Back! <strong> Reminder to hydrate 😎 </strong>
 					</p>
 					<Form size='large'>
 						<Segment stacked>
@@ -81,16 +81,17 @@ function Login({setUser}) {
 							</Button>
 						</Segment>
 					</Form>
-					<Message>
-						New to us?{" "}
-						<a href='/registration'>
+					<Message style={{justifyContent: "center"}}>
+						New to us? 
+						<Link to='/registration' style={{paddingLeft: 10}} >
 							<strong> Sign Up</strong>
-						</a>
+						</Link>
 					</Message>
 				</Grid.Column>
 			</Grid>
 
-			<Footer />
+			<div style={{ paddingTop: 100}}>
+			<Footer/></div>
 		</>
 	);
 }

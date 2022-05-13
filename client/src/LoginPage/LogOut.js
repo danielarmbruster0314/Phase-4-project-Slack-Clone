@@ -20,12 +20,12 @@ function LogOut() {
 						You have succesfully logged out.
 					</Header>
 
-					<p>Don't forget to hydrate and get some rest 😴</p>
+					<p>Don't forget to hydrate and <strong>get some rest 😴</strong></p>
 
-					<Message textAlign='center'>
-						<Header as='h4' color='purple' textAlign='center'>
-							Logged out by accident? <br />
-							<Link to='/' style={{ padding: "5px" }}>
+					<Message style={{justifyContent: "center"}}>
+						<Header as='h4' color='purple' textAlign='center' paddingBottom= '15'>
+							Logged out by accident? <br /><br/>
+							<Link to='/' style={{ paddingTop: "10px" }}>
 								<strong> Log back in Here </strong>
 							</Link>
 						</Header>

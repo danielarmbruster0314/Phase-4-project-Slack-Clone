@@ -53,7 +53,7 @@ function handleChatRoom(id){
 					<p>Friendly reminder to stay hydrated 😎 </p>
 					<Form size='large'>
 						<Segment stackable>
-							<p>Workspace for {user.email}</p>
+							<p>Workspace for <strong><em> {user.email}</em></strong></p>
 							{theWorkspcaes?.map((space) => (
 								<Button
 								key={theWorkspcaes.id}
@@ -84,21 +84,20 @@ function handleChatRoom(id){
 							/>
 						</Segment>
 					</Form>
-					<Message
+					<Message style={{justifyContent: "center"}}
 						size='large
                     '
 					>
-						Need a nap? <br /> Don't forget to
-						<a href='/'>
-							<strong> Log Out</strong>
-						</a>
+						Need a nap? Don't forget to
+						<Link to='/' style={{justifyContent: "center", paddingLeft: 10}}>
+							<strong > Log Out</strong>
+						</Link>
 					</Message>
 				</Grid.Column>
-			</Grid>
-			<br />
-			<br />
-			<br />
-			<Footer />
+			</Grid >
+		
+			<div style={{ paddingTop: 100}}>
+			<Footer/></div>
 		</>
 	);
 }

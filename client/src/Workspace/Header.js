@@ -10,8 +10,8 @@ import "./Header.css";
 function BannerHeader({user, setUser}) {
 	const navigate = useNavigate();
 	const [open, setOpen] = useState(false)
-	const [image, setImage] =useState('')
-	const [newusername, setNewUsername] = useState('')
+	const [image, setImage] =useState(null)
+	const [newusername, setNewUsername] = useState(null)
 	const nameCapitalized = user?.username.charAt(0).toUpperCase() + user?.username.slice(1)
 
 function hadnleLogout(){
@@ -25,28 +25,33 @@ function hadnleLogout(){
 }
 
 function handleUpdateInfo(){
-	
+	const theName = (newusername? newusername : user.username )
+	const theImage = (image? image : user.image )
 	fetch(`/users/${user.id}`, {
   method: 'PATCH',
   body: JSON.stringify({
-    username: newusername,
-	image: image
+    username: theName,
+	image: theImage
   }),
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
   },
 })
   .then((response) => response.json())
-  .then((json) => console.log(json));
+  .then((json) => setUser(json));
+  setNewUsername(null)
+  setImage(null)
 	
 }
+
+const imageDefault= (image? image : user.image )
 
 	console.log(newusername)
 	console.log(user)
 	return (	
 	<div className="header_div">
 		
-		
+
 	
 			<div className="header_div_left">
 				<AccessTimeIcon />
@@ -73,7 +78,7 @@ function handleUpdateInfo(){
     >
       <Modal.Header>Profile</Modal.Header>
       <Modal.Content image>
-        <Image size='medium' src={user?.image}  wrapped />
+        <Image size='medium' src={imageDefault}   wrapped />
         <Modal.Description>
           <Header>{nameCapitalized}</Header>
 		  <Header>{user?.email}</Header>
