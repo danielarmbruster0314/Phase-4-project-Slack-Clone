@@ -1,5 +1,5 @@
-import React from "react";
-import {Link} from "react-router-dom"
+import React,{useState} from "react";
+import {Link,useNavigate} from "react-router-dom"
 import "./Login.css";
 import {
 	Button,
@@ -14,7 +14,40 @@ import "./Login.css";
 import LogoHeader from "./Login_Header";
 import Footer from "./Login_Footer";
 
-function Registration() {
+function Registration({setUser}) {
+	const navigate = useNavigate();
+	const [username, setuserName] = useState('')
+	const [email, setEmail] = useState('')
+	const [password, setpassword] = useState('')
+	const [confirmpassword, setconfirmpassword] = useState('')
+
+	function handleCreateAccount(){
+		const newuser ={
+			username: username,
+			email: email,
+			password: password,
+			password_confirmation: confirmpassword
+		}
+		fetch('/signup', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newuser)
+  	})
+  	.then(res => res.json())
+  	.then(data => {
+		  setUser(data)
+		  navigate('/landingpage')
+		})
+	  setUser('')
+	  setEmail('')
+	  setpassword('')
+	  setconfirmpassword('')
+	}
+
+
 	return (
 		<>
 			<LogoHeader />
@@ -40,12 +73,16 @@ function Registration() {
 								icon='user'
 								iconPosition='left'
 								placeholder='User Name'
+								value={username}
+								onChange={(e)=>setuserName(e.target.value)}
 							/>
 							<Form.Input
 								fluid
 								icon='mail'
 								iconPosition='left'
 								placeholder='E-mail address'
+								value={email}
+								onChange={(e)=>setEmail(e.target.value)}
 							/>
 							<Form.Input
 								fluid
@@ -53,6 +90,8 @@ function Registration() {
 								iconPosition='left'
 								placeholder='Password'
 								type='password'
+								value={password}
+								onChange={(e)=>setpassword(e.target.value)}
 							/>
 
 							<Form.Input
@@ -61,11 +100,13 @@ function Registration() {
 								iconPosition='left'
 								placeholder='Confirm Password'
 								type='password'
+								value={confirmpassword}
+								onChange={(e)=>setconfirmpassword(e.target.value)}
 							/>
 							<p>Must match the first password input field.</p>
 
-							<Button color='purple' fluid size='large'>
-								<a href='/landingpage'> Join </a>
+							<Button onClick={()=>handleCreateAccount()} color='purple' fluid size='large'>
+								<p> Join </p>
 							</Button>
 						</Segment>
 					</Form>

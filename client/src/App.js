@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,Navigate  } from "react-router-dom";
 import Login from "./LoginPage/Login";
 import Registration from "./LoginPage/Registration";
 import Workspace from "./Workspace/Workspace.js";
@@ -25,14 +25,17 @@ useEffect(() => {
 	return (
 		<Routes>{!user ? (
 			<>
-				<Route path='/' element={<Login setUser={setUser}/>}></Route>
-				<Route path='/registration' element={<Registration />}></Route>
+			 	
+				<Route path='*' element={<Login setUser={setUser}/>}></Route>
+				<Route path='/registration' element={<Registration setUser={setUser}/>}></Route>
 				<Route path='/logout' element={<LogOut />}></Route>
+				{/* <Route path="*" element={<Navigate to="/" />}> </Route> */}
 			</>
 		):(
 
 			<>
-				<Route path='/landingpage' element={<LandingPage user={user} setWorkspace={setWorkspace}/>}></Route>
+				{/* <Route path="*" element={<Navigate to="/landingpage" />}></Route> */}
+				<Route path='/landingpage' element={<LandingPage user={user} setUser={setUser} setWorkspace={setWorkspace}/>}></Route>
 				{!workspace ?  (null) : (<Route path='/workspace' element={<Workspace workspace={workspace} user={user} setUser={setUser}/>}></Route>)}
 				
 				

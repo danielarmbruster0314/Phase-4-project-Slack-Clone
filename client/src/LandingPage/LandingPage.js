@@ -8,12 +8,13 @@ import {
 	Header,
 	Message,
 	Segment,
+	Icon
 } from "semantic-ui-react";
 import "./LandingPage.css";
 import LogoHeader from "./Header";
 import Footer from "./Footer";
 
-function LandingPage({user, setWorkspace}) {
+function LandingPage({user, setWorkspace, setUser}) {
 	const navigate = useNavigate();
 const [theWorkspcaes, setTheWorkspace] = useState([])
 
@@ -35,6 +36,16 @@ function handleChatRoom(id){
 	navigate('/workspace')
 	})
 	
+}
+
+function handleLogout(){
+	fetch("/logout", { method: "DELETE" })
+	.then((r) => {
+		if (r.ok) {
+		  setUser(null);
+		  navigate('/logout')
+		}
+	  });
 }
 
 	return (
@@ -67,6 +78,7 @@ function handleChatRoom(id){
 								icon='arrow right'
 								labelPosition='right'
 								onClick={()=> handleChatRoom(space.id)}
+								
 							></Button>
 							))}
 							
@@ -85,13 +97,12 @@ function handleChatRoom(id){
 						</Segment>
 					</Form>
 					<Message style={{justifyContent: "center"}}
-						size='large
-                    '
+						size='large'
 					>
 						Need a nap? Don't forget to
-						<Link to='/' style={{justifyContent: "center", paddingLeft: 10}}>
-							<strong > Log Out</strong>
-						</Link>
+						
+							<strong onClick={()=>handleLogout()} style={{justifyContent: "center", paddingLeft: 10, cursor:"pointer",color: 'blue'}}> Log Out</strong>
+						
 					</Message>
 				</Grid.Column>
 			</Grid >
