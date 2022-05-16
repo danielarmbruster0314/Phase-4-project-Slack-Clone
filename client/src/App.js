@@ -9,7 +9,7 @@ import "semantic-ui-css/semantic.min.css";
 import LogOut from "./LoginPage/LogOut";
 
 
-function App() {
+function App(cableApp) {
 const [user, setUser] = useState(null)
 const [workspace, setWorkspace] = useState("jimmy")
 useEffect(() => {
@@ -17,7 +17,9 @@ useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
-      }
+      }else{
+		r.json().then((error)=> console.log(error) )
+	}
     });
   }, []);
 
@@ -36,7 +38,7 @@ useEffect(() => {
 			<>
 				{/* <Route path="*" element={<Navigate to="/landingpage" />}></Route> */}
 				<Route path='/landingpage' element={<LandingPage user={user} setUser={setUser} setWorkspace={setWorkspace}/>}></Route>
-				{!workspace ?  (null) : (<Route path='/workspace' element={<Workspace workspace={workspace} user={user} setUser={setUser}/>}></Route>)}
+				{!workspace ?  (null) : (<Route path='/workspace' element={<Workspace workspace={workspace} user={user} setUser={setUser} cableApp={cableApp}/>}></Route>)}
 				
 				
 			</>

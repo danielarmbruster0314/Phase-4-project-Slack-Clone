@@ -80,7 +80,7 @@ const imageDefault= (image? image : user.image )
       <Modal.Content image>
         <Image size='medium' src={imageDefault}   wrapped />
         <Modal.Description>
-          <Header>{nameCapitalized}</Header>
+          <Header>{nameCapitalized} <em style={{color: 'grey', fontSize: 15, margin: 10}}> user-id #{user.id} </em></Header>
 		  <Header>{user?.email}</Header>
 		   <Input iconPosition='left' placeholder='Update username' >
       <Icon name='user' />

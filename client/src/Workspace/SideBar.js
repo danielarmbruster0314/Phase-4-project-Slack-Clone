@@ -14,8 +14,11 @@ import {FaRegEdit} from 'react-icons/fa'
 
 
 
-function SideBar({ user,workspace,setRoom, setmessages}) {
+
+
+function SideBar({ user,workspace,setRoom, setmessages, cableApp, messages, handleChannelData}) {
 const [listofChannels, setListOfChannels] = useState([])
+
 useEffect(() => {
 	setListOfChannels(workspace.list_rooms)
 },[]) 
@@ -24,24 +27,22 @@ function changeRoom(obj){
 	fetch(`/rooms/${obj.id}`)
 	.then(res => res.json())
 	.then(data => {
-		console.log(data)
 		setRoom(data)
 		setmessages(data.messages)
 	})
-	
-}
+	handleChannelData(obj)
+	}
 
 
-let allchannels = listofChannels?.map( channel => (
-<SideBarOption key={channel.id} changeRoom={changeRoom} title={channel.name} channel={channel} />
-))
-
+	let allchannels = listofChannels?.map( channel => (
+	<SideBarOption key={channel.id} changeRoom={changeRoom} title={channel.name} channel={channel} cableApp={cableApp} setmessages={setmessages} messages={messages}/>
+	))
 
 
 
 
 	function addChannelOption(){
-		
+	
 	}
 
 
@@ -75,10 +76,6 @@ let allchannels = listofChannels?.map( channel => (
 			<div className="sidebar_header">
 				<div className='sidebar_header_info'>
 					<h2 className="sidebar_workspacename">{workspace.name}</h2>
-					{/* <h3>
-						<FiberManualRecordIcon />
-						{user?.username}
-					</h3> */}
 				</div>
 				<span className="sidebaroption_edit"><FaRegEdit /></span>
 			</div>

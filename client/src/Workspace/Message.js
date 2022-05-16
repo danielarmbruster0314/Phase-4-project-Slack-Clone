@@ -2,7 +2,7 @@ import './Message.css'
 import {Avatar} from "@material-ui/core";
 
 function Message({ message, user, userImage }){
-    console.log(user)
+  
     const nameCapitalized = user?.username.charAt(0).toUpperCase() + user?.username.slice(1)
     return (
         <div className="message">

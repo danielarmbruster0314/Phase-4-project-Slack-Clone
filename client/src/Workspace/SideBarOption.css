@@ -21,6 +21,7 @@ background-color: rgba(209,210,211,0.2);
 .sidebaroption_channel {
     padding: 10px 0;
     align-items: center;
+    
 }
 
 .sidebar_option > h3 {
@@ -54,6 +55,7 @@ color: #919193;
 
 .button_option > .ui.black.button{
     background-color: transparent !important;
-    float: right;
+    /* float: right; */
     justify-content: flex-end;
 }
+

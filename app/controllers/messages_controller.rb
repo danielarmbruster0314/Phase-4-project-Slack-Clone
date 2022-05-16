@@ -16,12 +16,14 @@ class MessagesController < ApplicationController
   # POST /messages
   def create
     @message = Message.new(message_params)
-
+      room = Room.find(message_params[:room_id])
     if @message.save
-      render json: @message, status: :created, location: @message
+      room = @message.room
+      ActionCable.server.broadcast("rooms_channel", MessageSerializer.new(@message).as_json)
     else
       render json: @message.errors, status: :unprocessable_entity
     end
+    render json: @message, status: :created, location: @message
   end
 
   # PATCH/PUT /messages/1
@@ -47,5 +49,9 @@ class MessagesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def message_params
       params.require(:message).permit(:content, :user_id, :room_id)
+    end
+
+    def message_params_create
+      params.permit(:content, :user_id, :room_id)
     end
 end

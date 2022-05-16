@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "postgresql": "^0.0.1"
+    "actioncable": "^5.2.8",
+    "postgresql": "^0.0.1",
+    "react-actioncable-provider": "^2.0.0"
   }
 }

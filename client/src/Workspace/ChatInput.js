@@ -17,8 +17,8 @@ function sendMessage(e){
 		.then((r) => {
 			if (r.ok){
 				r.json().then((data) => {
-                    setmessages([...messages,data])
-                    window.scrollTo(0, document.body.scrollHeight);
+                    // setmessages([...messages,data])
+                    console.log(data)
                 })
 			}else{
 				r.json().then((error)=> console.log(error) )
@@ -29,7 +29,7 @@ function sendMessage(e){
 }
 
 return(
-    <di className='chat_input'>
+    <div className='chat_input'>
         <form>
             <input 
             value={input}
@@ -37,7 +37,7 @@ return(
             onChange={e => setInput(e.target.value)}/>
             <button type="submit" onClick={sendMessage}>SEND</button>
         </form>
-    </di>
+    </div>
 
 
 )}

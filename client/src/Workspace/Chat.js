@@ -2,13 +2,21 @@ import "./Chat.css";
 import Message from "./Message";
 import ChatInput from "./ChatInput.js";
 import React, { useEffect, useRef } from 'react'
-
+import {
+	Button,
+    Popup
+} from "semantic-ui-react";
 
 function Chat({ room, messages, user, setmessages }){
     const messagesEndRef = useRef(null)
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+      }
+
+
+      function handleChannelDelete(){
+          
       }
 
       useEffect(() => {
@@ -28,6 +36,14 @@ return (
     <div className="chat_header_right">
     <p>
     Details
+    <Popup  floated="right"
+        trigger={
+          <Button color='black' icon='ellipsis vertical'  style={{fontSize: 10}}/>
+        }
+        content={<Button inverted color='red' onClick={()=>handleChannelDelete}content='Delete this channel' />}
+        on='click'
+        position='top right'
+      />
     </p>
     </div>
         </div>

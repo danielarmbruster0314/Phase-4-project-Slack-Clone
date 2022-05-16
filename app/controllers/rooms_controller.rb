@@ -18,6 +18,12 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params_create)
 
     if @room.save
+      serialized_data = ActiveModelSerializers::Adapter::Json.new(
+        ConversationSerializer.new(room)
+      ).serializable_hash
+      ActionCable.server.broadcast 'rooms_channel', serialized_data
+      head :ok
+
       render json: @room, status: :created, location: @room
     else
       render json: @room.errors, status: :unprocessable_entity

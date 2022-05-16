@@ -38,7 +38,7 @@ function exampleReducer(state, action) {
 
 
 
-function SideBarOption({ Icon, title, name, addChannelOption,changeRoom,channel,workspace,listofChannels,setListOfChannels }){
+function SideBarOption({ Icon, title, name, addChannelOption,changeRoom,channel,workspace,listofChannels,setListOfChannels, cableApp, setmessages, messages }){
 const[isOn, setisOn] = useState(true)
 const [channelname, setChannelName] = useState('')
 
@@ -100,14 +100,6 @@ function addChannel(){
                 <h3 className="sidebaroption_chanel">
                     
                    <span className='sidebaroption_hash'>#</span>{title}    
-                  {/* <span className='button_option' > <Popup  floated="right"
-        trigger={
-          <Button color='black' icon='delete'  style={{fontSize: 10,paddin: 2}}/>
-        }
-        content={<Button inverted color='red' content='Confirm the launch' />}
-        on='click'
-        position='top right'
-      /></span> */}
                 </h3>
             )}
              <Modal

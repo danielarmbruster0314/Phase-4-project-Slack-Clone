@@ -4,11 +4,14 @@ import { BrowserRouter  } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import "semantic-ui-css/semantic.min.css";
+import actioncable from 'actioncable';
 
+const cableApp = {}
+cableApp.cable = actioncable.createConsumer('ws://localhost:3000/cable')
 
 	ReactDOM.render(
     (<BrowserRouter>
-        <App />
+        <App cableApp={cableApp}/>
     </BrowserRouter>),document.getElementById('root')
 );
 // import reportWebVitals from "./reportWebVitals";
