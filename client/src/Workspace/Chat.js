@@ -6,17 +6,28 @@ import {
 	Button,
     Popup
 } from "semantic-ui-react";
+import Workspace from "./Workspace";
 
-function Chat({ room, messages, user, setmessages }){
+function Chat({ room, messages, user, setmessages, workspaceadmin, setRoom }){
     const messagesEndRef = useRef(null)
+
+  
+
+
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
       }
 
-
+      
       function handleChannelDelete(){
-          
+        fetch("/room", { method: "DELETE" })
+        .then((r) => {
+          if (r.ok) {
+            setUser(null);
+            navigate('/logout')
+          }
+          }); 
       }
 
       useEffect(() => {
@@ -36,19 +47,19 @@ return (
     <div className="chat_header_right">
     <p>
     Details
-    <Popup  floated="right"
+    {workspaceadmin? <Popup inverted floated="right"
         trigger={
-          <Button color='black' icon='ellipsis vertical'  style={{fontSize: 10}}/>
+          <Button color='black' icon='ellipsis vertical'  style={{fontSize: 10,}}/>
         }
         content={<Button inverted color='red' onClick={()=>handleChannelDelete}content='Delete this channel' />}
         on='click'
         position='top right'
-      />
+      /> : null }
     </p>
     </div>
         </div>
         <div className="chat_messages">
-            {messages?.map(message => <Message key={message.id} message={message.content} user={message.user}/>)}
+            {messages?.map(message => <Message key={message.id} message={message.content} user={message.user} date={message.created_at}/>)}
     <div ref={messagesEndRef} />
         </div>
         <ChatInput room={room} user={user} messages={messages} setmessages={setmessages}/>

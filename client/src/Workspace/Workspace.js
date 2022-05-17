@@ -34,7 +34,6 @@ function handleChannelData(obj){
 		},
 		{
 		received: (data) => {
-			console.log(data)
 			setmessages(messages => [...messages,data])
 		},
 		}
@@ -42,6 +41,8 @@ function handleChannelData(obj){
 	
 	}
 }
+
+let workspaceadmin = (workspace.user.id === user.id ? true : false)
 
 function filterReciveiedData(messages,data){
 
@@ -63,7 +64,7 @@ function filterReciveiedData(messages,data){
 			messages={messages} 
 			cableApp={cableApp} 
 			handleChannelData={handleChannelData}/>
-			<Chat room={room} messages={messages} setRoom={setRoom} user={user} setmessages={setmessages}/>
+			<Chat room={room} messages={messages} setRoom={setRoom} user={user} setmessages={setmessages} workspaceadmin={workspaceadmin}/>
 			</div>
 			
 		</div>

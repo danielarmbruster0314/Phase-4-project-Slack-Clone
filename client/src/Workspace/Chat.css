@@ -31,3 +31,9 @@ display: flex;
 text-transform: lowercase;
 font-size: 22px;
 }
+div.ui.bottom.right.inverted.popup.transition.visible{
+    border: white solid 1px;
+}
+div.ui.bottom.right.inverted.popup.transition.visible::before{
+    display: none;
+}

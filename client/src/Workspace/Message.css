@@ -21,3 +21,12 @@ padding-left: 10px;
     object-fit: contain;
     border-radius: 25px;
 }
+
+.message_date_time:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.message_date_time{
+    color: #ABABAD;
+}

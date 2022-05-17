@@ -84,7 +84,7 @@ const style = {
   }
 
 function addChannel(){
-			
+  dispatch({ type: 'OPEN_MODAL', dimmer: 'blurring' })
 }
 
     return (
@@ -98,7 +98,6 @@ function addChannel(){
                 <h3>{title}</h3>
             ): (
                 <h3 className="sidebaroption_chanel">
-                    
                    <span className='sidebaroption_hash'>#</span>{title}    
                 </h3>
             )}

@@ -59,6 +59,7 @@ class MessagesController < ApplicationController
         content:@message.content,
         id: @message.id,
         user: @message.user
+        created_at: @message.created_at
       })
     end 
 end

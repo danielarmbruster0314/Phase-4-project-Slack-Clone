@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Routes, Route,Navigate  } from "react-router-dom";
+import { Routes, Route,useNavigate  } from "react-router-dom";
 import Login from "./LoginPage/Login";
 import Registration from "./LoginPage/Registration";
 import Workspace from "./Workspace/Workspace.js";
@@ -10,13 +10,16 @@ import LogOut from "./LoginPage/LogOut";
 
 
 function App(cableApp) {
+	const navigate = useNavigate();
 const [user, setUser] = useState(null)
 const [workspace, setWorkspace] = useState("jimmy")
 useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+			setUser(user)
+			navigate('/landingpage')});
       }else{
 		r.json().then((error)=> console.log(error) )
 	}

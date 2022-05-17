@@ -1,5 +1,4 @@
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import CreateIcon from '@mui/icons-material/Create';
+import {Avatar} from "@material-ui/core";
 import {useState, useEffect } from 'react';
 import React from "react";
 import "./SideBar.css";
@@ -18,9 +17,15 @@ import {FaRegEdit} from 'react-icons/fa'
 
 function SideBar({ user,workspace,setRoom, setmessages, cableApp, messages, handleChannelData}) {
 const [listofChannels, setListOfChannels] = useState([])
-
+const [listOfUsers, setlListofUsers] = useState([])
 useEffect(() => {
 	setListOfChannels(workspace.list_rooms)
+	fetch(`/users`)
+	.then(res => res.json())
+	.then(data => {
+		console.log(data)
+		setlListofUsers(data)
+	})
 },[]) 
 
 function changeRoom(obj){
@@ -46,7 +51,18 @@ function changeRoom(obj){
 	}
 
 
-
+	let allusers = listOfUsers?.map( user => (
+		<div className="sidebar_user_channel">
+		<Avatar 
+		className="header_avatar"
+		alt={user?.username}
+		src={user?.image}
+		variant="rounded"
+		style={{ width: 24, height: 24,cursor: "pointer"}}
+		/>
+		<p style={{marginLeft: 10}}>{user.username}</p>
+		</div>
+	))
 
 
 	const panels = [{
@@ -66,7 +82,8 @@ function changeRoom(obj){
 		{
 		key: 3,
 		title: "Direct messages",
-		content: "hello",}
+		content: {
+			content: (<>{allusers}</>),},}
 	]
 	
 
