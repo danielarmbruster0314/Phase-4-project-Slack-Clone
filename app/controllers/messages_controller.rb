@@ -16,10 +16,9 @@ class MessagesController < ApplicationController
   # POST /messages
   def create
     @message = Message.new(message_params)
-      room = Room.find(message_params[:room_id])
     if @message.save
       room = @message.room
-      ActionCable.server.broadcast("rooms_channel", MessageSerializer.new(@message).as_json)
+      broadcast room
     else
       render json: @message.errors, status: :unprocessable_entity
     end
@@ -54,4 +53,12 @@ class MessagesController < ApplicationController
     def message_params_create
       params.permit(:content, :user_id, :room_id)
     end
+
+    def broadcast(room)
+      RoomsChannel.broadcast_to(room,{
+        content:@message.content,
+        id: @message.id,
+        user: @message.user
+      })
+    end 
 end
